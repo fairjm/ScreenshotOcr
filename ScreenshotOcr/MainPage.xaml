@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScreenshotOcr.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="10,0"
+            VerticalOptions="Center">
+
+            <Image
+                x:Name="ScreenImage"
+                Source="dotnet_bot.png"
+                MinimumHeightRequest="200"
+                MaximumHeightRequest="600"
+                HorizontalOptions="Center" />
+
+            <Grid ColumnDefinitions="*,auto,80,*,auto,80,*,auto,80,*,auto,80,*">
+                <Label 
+                    VerticalOptions="Center"
+                    Grid.Column="1"
+                    Text="X"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Grid.Column="2"
+                    HeightRequest="30"
+                    MinimumHeightRequest="30"
+                    x:Name="XEntry"/>
+                <Label 
+                    VerticalOptions="Center"
+                    Grid.Column="4"
+                    Text="Y"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Grid.Column="5"
+                    HeightRequest="30"
+                    MinimumHeightRequest="30"
+                    x:Name="YEntry"/>
+
+                <Label 
+                    VerticalOptions="Center"
+                    Grid.Column="7"
+                    Text="Width"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Grid.Column="8"
+                    HeightRequest="30"
+                    MinimumHeightRequest="30"
+                    x:Name="WidthEntry"/>
+
+                <Label 
+                    VerticalOptions="Center"
+                    Grid.Column="10"
+                    Text="Height"/>
+                <Entry 
+                    VerticalOptions="Center"
+                    Grid.Column="11"
+                    HeightRequest="30"
+                    MinimumHeightRequest="30"
+                    x:Name="HeightEntry"/>
+            </Grid>
+
+
+            <Entry x:Name="CheckEntry" Placeholder="请在这里输入检测文本"/>
+
+            <HorizontalStackLayout Spacing="40" HorizontalOptions="Center">
+                <Button
+                x:Name="StartBtn"
+                Text="Start"
+                Clicked="OnStartBtnClicked"
+                HorizontalOptions="Center" />
+                <Button
+                    x:Name="StopBtn"
+                    Text="Stop"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Clicked="OnStopBtnClicked"
+                    HorizontalOptions="Center" 
+                    IsEnabled="False"/>
+            </HorizontalStackLayout>
+
+            <Label x:Name="Label" MaxLines="10"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
