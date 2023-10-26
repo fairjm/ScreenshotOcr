@@ -123,11 +123,8 @@ public partial class MainPage : ContentPage
                     await Toast.Make($"{checkText} 触发啦").Show();
                     IEnumerable<Locale> locales = await TextToSpeech.Default.GetLocalesAsync();
                     var localeList = locales.ToList();
-                    var locale = localeList.ToList().First(e => e.Language.ToLower().Contains("zh"));
-                    if (locale is null)
-                    {
-                        locale = localeList.First();
-                    }
+                    var locale = localeList.ToList().FirstOrDefault(e => e.Language.ToLower().Contains("zh")) ??
+                                 localeList.First();
                     var options = new SpeechOptions()
                     {
                         Pitch = 1.5f,   // 0.0 - 2.0
